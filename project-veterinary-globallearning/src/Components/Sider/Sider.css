@@ -1,0 +1,15 @@
+/* Si se quiere cambiar el color de la barra lateral izquierda/aside cambiarlos valores background: #abbfb4 todos la mismo tiempo*/
+
+
+#components-layout-demo-side .logo {
+  height: 32px;
+  margin: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
+
+
+
