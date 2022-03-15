@@ -5,7 +5,12 @@ import MySider from './Components/Sider/Sider';
 function App() {
   return (
     <div>
-      <MySider/>        
+
+      {/* <Login> */}
+        {/* encriptacion  */}
+        <MySider/>  
+        {/* cierre encriptacion */}
+      {/* </Login> */}
     </div>
   );
 }
