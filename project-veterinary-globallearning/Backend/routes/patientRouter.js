@@ -1,16 +1,15 @@
 const express = require('express');
-const patientController = require('../controllers/patientControler')
-/* const validator = require('express-joi-validation').createValidator();
-const bookValidationer = require('../validations/bookValidationer') */
+const patientController = require('../controllers/patientController')
+
 
 const routes = (Patient) => {
 	const patientRouter = express.Router();
 	const  {getPatients, postPatient, getPatientById, putPatient, deletePatientById, getSearchPatient} = patientController(Patient); 
-/* 	const {bodySchema, querySchema} = bookValidationer(); */
+
 
 	patientRouter.route('/patient')
   .get(getPatients)
-  .post(/* validator.body(bodySchema), */  postPatient);
+  .post(postPatient);
 
 	patientRouter
 		.route('/patient/:patientId')
@@ -20,7 +19,7 @@ const routes = (Patient) => {
 
 	patientRouter
 		.route('/patientSearch')
-			.get(getSearchPatient)
+		.get(getSearchPatient)
 	
 		return patientRouter;
 	}

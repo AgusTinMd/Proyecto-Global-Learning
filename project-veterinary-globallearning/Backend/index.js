@@ -23,5 +23,5 @@ app.use(bodyParser.json());
 //   path: ['/api/users/login'],
 // }));
 
-app.use('/api', patientRouter, userRouter);
+app.use('/veterinaryApi', patientRouter, userRouter);
 app.listen(8080);
