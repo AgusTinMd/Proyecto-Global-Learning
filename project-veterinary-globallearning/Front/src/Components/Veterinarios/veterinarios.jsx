@@ -1,12 +1,12 @@
 import React from "react";
 
-const veterinarios = (props) => {
+const Veterinarios = (props) => {
   return(
-    <div>
-      <h4>Hola veterinarios</h4>
+    <div className="veterinarios">
+      <h1>Hola veterinarios</h1>
     </div>
   )
 
 }
 
-export default veterinarios
+export default Veterinarios
