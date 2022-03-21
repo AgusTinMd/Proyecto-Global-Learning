@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+
+
+header{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 30px;
+    align-self: center;
+}
+.button-container{
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    background-color: rgb(150, 170, 160);
+    border-radius: 5px;
+    padding: 8px;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+}
+
+button:hover{
+    background-color: rgb(190, 210, 200);
+    transition: 850ms;
+}
+
+.edit-button{
+    background-color: rgb(90, 90, 247);
+}
+.delete-button{
+    background-color: rgb(255, 97, 97);
+    margin-left: 5px;
+}
