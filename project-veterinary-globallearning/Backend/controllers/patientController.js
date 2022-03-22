@@ -9,7 +9,7 @@ const  patientController = (Patient) => {
     const patient = new Patient(req.body);
     await patient.save();
 
-    res.json(patient)
+    res.json(patient);
   };
 
   const getPatientById = async (req, res) => {

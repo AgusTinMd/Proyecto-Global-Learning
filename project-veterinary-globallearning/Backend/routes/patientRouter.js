@@ -11,8 +11,7 @@ const routes = (Patient) => {
   .get(getPatients)
   .post(postPatient);
 
-	patientRouter
-		.route('/patient/:patientId')
+	patientRouter.route('/patient/:patientId')
 		.get(getPatientById)
 		.put(putPatient)
 		.delete(deletePatientById)

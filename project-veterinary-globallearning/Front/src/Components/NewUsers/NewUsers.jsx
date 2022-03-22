@@ -1,12 +1,12 @@
 import React from "react";
 
-const newusers = (props) => {
+const NewUsers = (props) => {
   return(
     <div>
-      <h1>Hola nuevos usuarios</h1>
+      <h1>Bienvenidos nuevos usuarios</h1>
     </div>
   )
 
 }
 
-export default newusers
+export default NewUsers
