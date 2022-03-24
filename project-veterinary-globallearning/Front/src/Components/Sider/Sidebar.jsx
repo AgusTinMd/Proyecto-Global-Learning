@@ -1,10 +1,6 @@
 import { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-} from '@ant-design/icons';
+import {FaHandHoldingMedical, FaDog, FaUserPlus, FaHome} from 'react-icons/fa'
 import 'antd/dist/antd.css';
 
 import {Routes, Route, Link} from 'react-router-dom'
@@ -27,17 +23,17 @@ const Sidebar = () => {
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
+          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{ fontSize: '16px'}}>
+            <Menu.Item key="1" icon={<FaHome  style={{ fontSize: '18px'}}/>} >
               <Link to='/'>Inicio</Link>
             </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
+            <Menu.Item key="2" icon={<FaHandHoldingMedical style={{ fontSize: '18px'}} />  } >
               <Link to='/veterinarios'>Veterinarios</Link>
             </Menu.Item>
-            <Menu.Item key="3" icon={<FileOutlined />}>
+            <Menu.Item key="3" icon={<FaDog style={{ fontSize: '18px'}} />}>
             <Link to='/pacientes'>Paciente</Link>
             </Menu.Item>
-            <Menu.Item key="4" icon={<PieChartOutlined />}>
+            <Menu.Item key="4" icon={<FaUserPlus  style={{ fontSize: '18px'}}/>}>
             <Link to='/newusers'>Nuevos Usuarios</Link>
             </Menu.Item>
           </Menu>
