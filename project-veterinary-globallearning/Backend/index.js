@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors')
 // const jwt = require('express-jwt');
 
 const Patient = require('./models/patientModel');
@@ -13,6 +14,7 @@ const userRouter = require('./routes/userRouter')(User);
 
 const app = express();
 
+app.use(cors())
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
