@@ -1,15 +1,18 @@
 const  patientController = (Patient) => {
   const getPatients = async (req,res) => {
-    const {query} = req;
-    const allPatients = await Patient.find(query);
-    res.json(allPatients);
+    // const {query} = req;
+    const allPatients = await Patient.find();
+    res.header('Access-Control-Allow-Origin','*');
+    res.header('Access-Control-Allow-Credentials','true');
+    res.status(200).json(allPatients);
   };
 
   const postPatient = async (req, res) => {
     const patient = new Patient(req.body);
+    res.header('Access-Control-Allow-Origin','*');
+    res.header('Access-Control-Allow-Credentials','true');  
     await patient.save();
-
-    res.json(patient);
+    res.status(200).json(patient);
   };
 
   const getPatientById = async (req, res) => {

@@ -8,7 +8,7 @@ function App() {
   return (
     <>
     <Router>
-      <Sidebar/>     
+      <Sidebar/>
     </Router>
       
     </>
