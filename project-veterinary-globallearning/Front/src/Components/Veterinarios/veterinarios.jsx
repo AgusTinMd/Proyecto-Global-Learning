@@ -1,9 +1,11 @@
 import React from "react";
-import NewUsers from "../NewUsers/NewUsers";
-import { Table, Button, Space} from "antd";
+import PostUsers from "./PostVeterinarios";
+import { Table} from "antd";
 import 'antd/dist/antd.css';
 import { useState, useEffect } from "react";
 import axios from "axios"
+import EditVeterinarios from "./EditVeterinarios";
+import DeleteVeterinarios from "./DeleteVeterinarios";
 
 const Veterinarios = () => {
   const [user, setUser] = useState([])
@@ -22,12 +24,7 @@ const Veterinarios = () => {
 		getAllUsers()
 	}, [])	
 
-  const bottomOptions = [
-    { label: 'bottomLeft', value: 'bottomLeft' },
-    { label: 'bottomCenter', value: 'bottomCenter' },
-    { label: 'bottomRight', value: 'bottomRight' },
-    { label: 'none', value: 'none' },
-  ];
+ 
   
   const columns = [
     
@@ -63,28 +60,32 @@ const Veterinarios = () => {
       key: 'mail',
     },
     {
-      title: '',
+      title: 'Action',
       key: 'action',
-      render: (text, record) => (
-        <Space size="middle">
-          <button>Edite</button>
-          <a>Delete</a>
-        </Space>
-      ),
+       render: (record) => {
+        return(
+          <>
+            <EditVeterinarios datostoedit={record}/>
+            <br />
+            <DeleteVeterinarios datostodelete={record}/>         
+          </>
+        )
+      } 
     },
-   
-    
+  
   ];
+
+ 
   
  
   return(
   <div> 
-    <NewUsers/>
-    
+    <PostUsers/>
     <div className="veterinarios">
       <h1>Hola veterinarios</h1>
     <Table dataSource={user} columns={columns}/>
-    
+   
+
     </div>
   </div>
      
