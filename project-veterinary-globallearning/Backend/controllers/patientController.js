@@ -29,7 +29,7 @@ const  patientController = (Patient) => {
     try {
       const {body} = req;
       const patientUpdate = await Patient.updateOne({
-        _id: req.params.bookId,
+        _id: req.params.patientId,
       },{
        $set:  {
             ownerName: body.ownerName,

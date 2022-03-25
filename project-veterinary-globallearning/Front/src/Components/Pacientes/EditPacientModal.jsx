@@ -8,7 +8,7 @@ const FormData = require('form-data');
 
 const EditPacienteModal = (props) => {
 
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
 
 
   const openModal = () => {
@@ -21,17 +21,17 @@ const EditPacienteModal = (props) => {
 
 
   const [postData, setPostData] = useState({
-      ownerName: '',
-      dni: '',
-      phone: '',
-      addres: '',
-      email: '', 
-      petName:'',
-      typePet: '',
-      race: '',
-      age: '',
-      gender: '',
-      description: ''
+      ownerName: (props.datostoedit.ownerName),
+      dni: (props.datostoedit.dni),
+      phone: (props.datostoedit.phone),
+      addres: (props.datostoedit.addres),
+      email: (props.datostoedit.email), 
+      petName:(props.datostoedit.petName),
+      typePet: (props.datostoedit.typePet),
+      race: (props.datostoedit.race),
+      age: (props.datostoedit.age),
+      gender: (props.datostoedit.gender),
+      description: (props.datostoedit.description)
     });
 
 
@@ -43,10 +43,20 @@ const EditPacienteModal = (props) => {
       
       console.log("Entramos al submit")
       event.preventDefault()
+
+      console.log(postData)
  
-      const resp = await axios.post('http://localhost:8080/veterinaryApi/patient', postData)
-      
-      refreshPage();
+      try{
+        const resp = await axios.put(`http://localhost:8080/veterinaryApi/patient/${props.datostoedit._id}`, postData)
+
+        console.log(resp.data)
+        
+        refreshPage();
+      } catch (err){
+        console.log(err)
+      }
+
+     
 
     }
 
@@ -59,17 +69,19 @@ const EditPacienteModal = (props) => {
   return (
       <div className="App"> 
       <>
-       
-        <Modal title="Registro de pacientes" 
+        <Button type="primary" onClick={openModal}>
+          Edit
+        </Button>
+        <Modal title="Edicion de pacientes" 
         visible={modal}
         onOk={openModal} 
         onCancel={closeModal}
         footer = {null}  
-        > 
+        >
           <div> 
             <Form >
                 <Form.Item label="owner Name">
-                  <Input name="ownerName" placeholder="Nombre del dueño" value={postData.ownerName} onChange={handleChange}/>
+                  <Input name="ownerName" placeholder="Owner Name" value={postData.ownerName} onChange={handleChange}/>
                 </Form.Item>
                 <Form.Item label="dni">
                   <Input name="dni" placeholder="DNI" value={postData.dni} onChange={handleChange}/>
@@ -102,7 +114,7 @@ const EditPacienteModal = (props) => {
                   <Input name="description" placeholder="Description" value={postData.description} onChange={handleChange}/>
                 </Form.Item>
                 
-                <Button type = "primary" onClick={handleSubmit} onSubmit={handleSubmit} > Agregar nuevo paciente </Button>            
+                <Button type = "primary" onClick={handleSubmit} onSubmit={handleSubmit} > Editar paciente </Button>            
             </Form>
           </div>
         </Modal>
