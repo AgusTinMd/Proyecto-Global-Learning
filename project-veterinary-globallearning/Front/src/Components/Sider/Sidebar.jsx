@@ -54,7 +54,7 @@ const Sidebar = () => {
               </Routes>
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>UWU ©2018 Created by OWO</Footer>
+          <Footer style={{ textAlign: 'center' }}>©2022 Created by Los 4 Fantasticos</Footer>
         </Layout>
       </Layout>
     )
