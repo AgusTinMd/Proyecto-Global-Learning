@@ -70,7 +70,7 @@ const EditPacienteModal = (props) => {
       <div className="App"> 
       <>
         <Button type="primary" onClick={openModal}>
-          Edit
+          Editar Paciente
         </Button>
         <Modal title="Edicion de pacientes" 
         visible={modal}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal, Button, Form } from 'antd';
+import { Modal, Button, Form, Input } from 'antd';
 import 'antd/dist/antd.css'; 
 import axios from "axios";
 
@@ -63,7 +63,7 @@ const EditVeterinarios = (props) => {
       <Button type="primary" onClick={openModal}>
         Editar usuarios
       </Button>
-      <Modal title="Registro de usuarios" 
+      <Modal title="Edicion de usuarios" 
       visible={modal}
       onOk={openModal} 
       onCancel={closeModal}
@@ -73,20 +73,20 @@ const EditVeterinarios = (props) => {
         <div> 
           <Form>
         <Form.Item label="Usuario">
-        <input type= "text" name="userName"  value={putData.userName} onChange={handleChange}/>
+        <Input type= "text" name="userName"  value={putData.userName} onChange={handleChange}/>
       </Form.Item>
     
       <Form.Item label="DNI">
-        <input type= "text" name="dni"  value={putData.dni} onChange={handleChange}/>
+        <Input type= "text" name="dni"  value={putData.dni} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="License">
-        <input type= "text" name="licenseNumber"  value={putData.licenseNumber} onChange={handleChange}/>
+        <Input type= "text" name="licenseNumber"  value={putData.licenseNumber} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="Phone">
-        <input type= "text" name="phone"  value={putData.phone} onChange={handleChange}/>
+        <Input type= "text" name="phone"  value={putData.phone} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="Mail">
-        <input type= "text" name="mail"  value={putData.mail} onChange={handleChange}/>
+        <Input type= "text" name="mail"  value={putData.mail} onChange={handleChange}/>
       </Form.Item>
       <Button type = "primary" onSubmit={handleSubmit} onClick={handleSubmit}> Confirmar edicion </Button>
      

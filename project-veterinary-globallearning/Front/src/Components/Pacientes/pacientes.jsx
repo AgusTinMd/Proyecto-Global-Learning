@@ -3,7 +3,7 @@ import {Table, Button, Input, Modal} from 'antd'
 import axios from 'axios'
 import PacienteModal from "./PacienteModal"
 import EditPacientModal from './EditPacientModal'
-
+import DeletePacientModal from './DeletePacientModal'
 
 
 
@@ -53,9 +53,8 @@ const Pacientes = () => {
         return(
           <>
             <EditPacientModal datostoedit={record}/>
-            <Button onClick={()=>{
-              showRecord(record)
-            }}>Delete</Button>           
+            <br/>
+            <DeletePacientModal datostodelete={record}/>      
           </>
         )
       }
@@ -66,17 +65,6 @@ const Pacientes = () => {
   const showRecord = (record) => {
     console.log(record)
   }
-
-  // const [showModal, setShowModal] = useState(false)
-
-  // const trueShowModal = () =>{
-  //   setShowModal(true)
-  // }
-
-  // const falseShowModal = () => {
-  //   setShowModal(false);
-  // }
-
   
 
   //Table patients
@@ -101,8 +89,9 @@ const Pacientes = () => {
 
 
   return(
-   <>
+   <> 
       <PacienteModal/>
+      <h1></h1>
       <Table dataSource={patients} columns={columns}/>  
    </>
   )

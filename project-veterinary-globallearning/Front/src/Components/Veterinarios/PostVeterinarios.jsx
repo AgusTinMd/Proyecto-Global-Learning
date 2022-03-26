@@ -60,22 +60,22 @@ const PostUsers = () => {
         <div> 
           <Form>
         <Form.Item label="Usuario">
-        <input type= "text" name="userName"  value={postData.userName} onChange={handleChange}/>
+        <Input type= "text" name="userName"  value={postData.userName} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="Password">
-        <input type= "text" name="password"  value={postData.password} onChange={handleChange}/>
+        <Input type= "text" name="password"  value={postData.password} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="DNI">
-        <input type= "text" name="dni"  value={postData.dni} onChange={handleChange}/>
+        <Input type= "text" name="dni"  value={postData.dni} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="License">
-        <input type= "text" name="licenseNumber"  value={postData.licenseNumber} onChange={handleChange}/>
+        <Input type= "text" name="licenseNumber"  value={postData.licenseNumber} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="Phone">
-        <input type= "text" name="phone"  value={postData.phone} onChange={handleChange}/>
+        <Input type= "text" name="phone"  value={postData.phone} onChange={handleChange}/>
       </Form.Item>
       <Form.Item label="Mail">
-        <input type= "text" name="mail"  value={postData.mail} onChange={handleChange}/>
+        <Input type= "text" name="mail"  value={postData.mail} onChange={handleChange}/>
       </Form.Item>
       <Button type = "primary" onSubmit={handleSubmit} onClick={handleSubmit}> Agregar nuevo usuario </Button>
      

@@ -82,7 +82,7 @@ const Veterinarios = () => {
   <div> 
     <PostUsers/>
     <div className="veterinarios">
-      <h1>Hola veterinarios</h1>
+      <h1></h1>
     <Table dataSource={user} columns={columns}/>
    
 

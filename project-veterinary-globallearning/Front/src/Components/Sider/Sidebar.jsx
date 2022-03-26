@@ -5,9 +5,8 @@ import 'antd/dist/antd.css';
 
 import {Routes, Route, Link} from 'react-router-dom'
 import Pacientes from '../Pacientes/Pacientes';
-import Veterinarios from '../Veterinarios/Veterinarios'
+import Veterinarios from '../Veterinarios/veterinarios'
 import Home from '../Home/Home';
-import PostUsers from '../Veterinarios/PostVeterinarios';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -43,7 +42,7 @@ const Sidebar = () => {
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+              <Breadcrumb.Item></Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             <Routes>
