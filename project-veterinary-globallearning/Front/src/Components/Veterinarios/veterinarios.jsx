@@ -1,7 +1,6 @@
 import React from "react";
 import PostUsers from "./PostVeterinarios";
 import { Table} from "antd";
-import 'antd/dist/antd.css';
 import { useState, useEffect } from "react";
 import axios from "axios"
 import EditVeterinarios from "./EditVeterinarios";
