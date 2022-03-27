@@ -2,8 +2,8 @@ import React from "react";
 
 const Veterinarios = (props) => {
   return(
-    <div className="veterinarios">
-      <h1>Hola veterinarios</h1>
+    <div>
+      <h1>Bienvenidos veterinarios</h1>
     </div>
   )
 
