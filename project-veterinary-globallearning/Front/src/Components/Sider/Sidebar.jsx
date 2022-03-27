@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {FaHandHoldingMedical, FaDog, FaUserPlus, FaHome} from 'react-icons/fa'
-import 'antd/dist/antd.css';
 
 import {Routes, Route, Link} from 'react-router-dom'
 import Pacientes from '../Pacientes/Pacientes';
-import Veterinarios from '../Veterinarios/veterinarios'
+import Veterinarios from '../Veterinarios/Veterinarios'
 import Home from '../Home/Home';
+import Login from '../Login/Login';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -24,7 +24,7 @@ const Sidebar = () => {
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" style={{ fontSize: '16px'}}>
             <Menu.Item key="1" icon={<FaHome  style={{ fontSize: '18px'}}/>} >
-              <Link to='/'>Inicio</Link>
+              <Link to='/home'>Inicio</Link>
             </Menu.Item>
             <Menu.Item key="2" icon={<FaHandHoldingMedical style={{ fontSize: '18px'}} />  } >
               <Link to='/veterinarios'>Veterinarios</Link>
@@ -46,9 +46,11 @@ const Sidebar = () => {
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
             <Routes>
-                <Route path='/' element={<Home/>}/>
+                <Route exact path='/' element={<Login/>}/>
+                <Route path='/home' element={<Home/>}/>
                 <Route path="/veterinarios" element={<Veterinarios/>}/>
                 <Route path="/pacientes" element={<Pacientes/>}/>
+                
                 {/* <Route path="/newusers" element={<NewUsers/>}/> */}
               </Routes>
             </div>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Input } from 'antd';
-import 'antd/dist/antd.css'; 
 import axios from "axios";
 
 const EditVeterinarios = (props) => {

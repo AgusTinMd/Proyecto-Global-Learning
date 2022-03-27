@@ -1,4 +1,4 @@
-import './App.css';
+import './App.less';
 import React from 'react';
 import Sidebar from './Components/Sider/Sidebar';
 import { BrowserRouter as Router} from 'react-router-dom';
