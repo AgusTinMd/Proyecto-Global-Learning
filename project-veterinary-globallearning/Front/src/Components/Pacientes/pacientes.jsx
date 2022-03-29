@@ -4,12 +4,13 @@ import axios from 'axios'
 import PacienteModal from "./PacienteModal"
 import EditPacientModal from './EditPacientModal'
 import DeletePacientModal from './DeletePacientModal'
-
-
-
+import useAuth from "../../hooks/useAuth";
+import config from './../../api';
 
 const Pacientes = () => {
+  const {auth} = useAuth();
 
+  const [isModalVisible, setIsModalVisible] = useState(false);  
   const columns = [
     {
       title: 'Owner Name',
@@ -52,9 +53,9 @@ const Pacientes = () => {
       render: (record) => {
         return(
           <>
-            <EditPacientModal datostoedit={record}/>
+            <EditPacientModal datostoedit={record} token={auth.token} isModalVisible={isModalVisible} setVision={setIsModalVisible} />
             <br/>
-            <DeletePacientModal datostodelete={record}/>      
+            <DeletePacientModal datostodelete={record} token={auth.token}/>      
           </>
         )
       }
@@ -74,7 +75,7 @@ const Pacientes = () => {
 
   const getAllPacients = async() => {
 
-    const resp = await axios.get('http://localhost:8080/veterinaryApi/patient', {mode:'cors', credentials: 'include'})
+    const resp = await axios.get('http://localhost:8080/veterinaryApi/patient', config(auth.token));
 
     console.log(resp)
 
@@ -90,7 +91,7 @@ const Pacientes = () => {
 
   return(
    <> 
-      <PacienteModal/>
+      <PacienteModal token={auth.token}/>
       <h1></h1>
       <Table dataSource={patients} columns={columns}/>  
    </>

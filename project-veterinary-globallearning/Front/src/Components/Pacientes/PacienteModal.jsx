@@ -2,11 +2,11 @@ import { useState } from "react";
 // import Pacientes from "./Pacientes";
 import { Form, Button, Modal, Input } from "antd";
 import axios from "axios";
+import config from './../../api';
+
 const FormData = require('form-data');
 
-
-
-const PacienteModal = () => {
+const PacienteModal = (props) => {
 
   const [modal, setModal] = useState(false);
 
@@ -44,9 +44,10 @@ const PacienteModal = () => {
       console.log("Entramos al submit")
       event.preventDefault()
  
-      const resp = await axios.post('http://localhost:8080/veterinaryApi/patient', postData)
+      const resp = await axios.post('http://localhost:8080/veterinaryApi/patient', postData, config(props.token));
       
-      refreshPage();
+      // refreshPage();
+      closeModal();
 
     }
 

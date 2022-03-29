@@ -1,15 +1,34 @@
 import React, {useState} from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
+import axios from "axios";
+import useAuth from '../../hooks/useAuth';
+import { Navigate, useNavigate } from 'react-router-dom';
 
-const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
 
 export default function Login(){
+  
+  let navigate = useNavigate();
+  const { setAuth } = useAuth();
+  
+  const onFinish = async (values) => {
+    try{
+      const response = await axios.post(`http://localhost:8080/veterinaryApi/users/login`, values);
+      const data = response?.data;
+      setAuth({userName: values.userName, token: data.token});
+      console.log(response);
+      navigate('/home', {replace: true});
+    }
+    catch (err){
+      
+    }
+  
+      console.log('Success:', values);
+    };
+  
+    const onFinishFailed = (errorInfo) => {
+      console.log('Failed:', errorInfo);
+    };
+
 
     return (
         <Form
@@ -29,7 +48,7 @@ export default function Login(){
         >
           <Form.Item
             label="Usuario"
-            name="usuario"
+            name="userName"
             rules={[
               {
                 required: true,
