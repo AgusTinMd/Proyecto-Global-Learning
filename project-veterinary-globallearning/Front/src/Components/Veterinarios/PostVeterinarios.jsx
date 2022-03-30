@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Input } from 'antd';
 import axios from "axios";
+import config from './../../api';
 
-const PostUsers = () => {
+
+const PostUsers = (props) => {
   const [modal, setModal] = useState(false);
-
   const openModal = () => {
     setModal(true);
   };
@@ -32,9 +33,9 @@ const PostUsers = () => {
       console.log("Entramos al submit")
       event.preventDefault()
  
-      const resp = await axios.post('http://localhost:8080/veterinaryApi/users', postData)
+      const resp = await axios.post('http://localhost:8080/veterinaryApi/users/newUser', postData, config(props.token));
       
-      refreshPage();
+      // refreshPage();
 
     }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button, Form, Input } from 'antd';
 import axios from "axios";
+import config from './../../api';
 
 const EditVeterinarios = (props) => {
   const [modal, setModal] = useState(false);
@@ -38,11 +39,11 @@ const EditVeterinarios = (props) => {
         console.log(putData)
    
         try{
-          const resp = await axios.put(`http://localhost:8080/veterinaryApi/users/${props.datostoedit._id}`, putData)
+          const resp = await axios.put(`http://localhost:8080/veterinaryApi/users/${props.datostoedit._id}`, putData, config(props.token));
   
           console.log(resp.data)
           
-          refreshPage();
+          // refreshPage();
         } catch (err){
           console.log(err)
         }

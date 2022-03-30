@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {FaHandHoldingMedical, FaDog, FaUserPlus, FaHome} from 'react-icons/fa'
 
-import {Routes, Route, Link} from 'react-router-dom'
-import Pacientes from '../Pacientes/Pacientes';
-import Veterinarios from '../Veterinarios/Veterinarios'
-import Home from '../Home/Home';
-import Login from '../Login/Login';
+import {Routes, Route, Link, Outlet} from 'react-router-dom'
+
+import useAuth from '../../hooks/useAuth';
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const Sidebar = () => {
+
+  const { auth } = useAuth();
 
     const [collapsed, setCollapsed] = useState(false)
     const onCollapse = collapsed => {
@@ -41,18 +41,11 @@ const Sidebar = () => {
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
+              <Breadcrumb.Item>{auth.userName}</Breadcrumb.Item>
               <Breadcrumb.Item></Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-            <Routes>
-                <Route exact path='/' element={<Login/>}/>
-                <Route path='/home' element={<Home/>}/>
-                <Route path="/veterinarios" element={<Veterinarios/>}/>
-                <Route path="/pacientes" element={<Pacientes/>}/>
-                
-                {/* <Route path="/newusers" element={<NewUsers/>}/> */}
-              </Routes>
+              <Outlet/>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>©2022 Created by Los 4 Fantasticos</Footer>

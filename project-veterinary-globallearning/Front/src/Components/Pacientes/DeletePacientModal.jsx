@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal, Button} from 'antd';
 import axios from "axios";
+import config from './../../api';
 
 const DeletePacientModal = (props) => {
   const [modal, setModal] = useState(false);
@@ -35,11 +36,11 @@ const DeletePacientModal = (props) => {
         console.log(deleteData)
    
         try{
-          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/patient/${props.datostodelete._id}`, deleteData)
+          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/patient/${props.datostodelete._id}`, config(props.token));
   
           console.log(resp.data)
           
-          refreshPage();
+          //refreshPage();
         } catch (err){
           console.log(err)
         }
