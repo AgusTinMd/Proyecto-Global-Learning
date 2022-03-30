@@ -35,13 +35,10 @@ const PostUsers = (props) => {
  
       const resp = await axios.post('http://localhost:8080/veterinaryApi/users/newUser', postData, config(props.token));
       
-      // refreshPage();
+      closeModal();
 
     }
 
-    const refreshPage = () => {
-      window.location.reload(false);
-    }
   
 
   return (
@@ -50,6 +47,7 @@ const PostUsers = (props) => {
       <Button type="primary" onClick={openModal}>
         Agregar nuevos usuarios
       </Button>
+      
       <Modal title="Registro de usuarios" 
       visible={modal}
       onOk={openModal} 

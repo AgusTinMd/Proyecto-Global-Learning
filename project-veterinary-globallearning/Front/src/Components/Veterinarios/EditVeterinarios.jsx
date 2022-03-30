@@ -43,7 +43,7 @@ const EditVeterinarios = (props) => {
   
           console.log(resp.data)
           
-          // refreshPage();
+          closeModal();
         } catch (err){
           console.log(err)
         }
@@ -51,9 +51,7 @@ const EditVeterinarios = (props) => {
        
   
 
-    const refreshPage = () => {
-      window.location.reload(false);
-    }
+   
 
     
 

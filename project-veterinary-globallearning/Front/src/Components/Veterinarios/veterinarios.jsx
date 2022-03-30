@@ -1,6 +1,6 @@
 import React from "react";
 import PostUsers from "./PostVeterinarios";
-import { Table} from "antd";
+import { Button, Table} from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import EditVeterinarios from "./EditVeterinarios";
@@ -22,7 +22,7 @@ const Veterinarios = () => {
 
 	useEffect(()=> {
 		getAllUsers();
-	}, []);
+	}, [user]);
 
  
   
@@ -79,7 +79,7 @@ const Veterinarios = () => {
   
  
   return(
-  <div> 
+  <div>
     <PostUsers token={auth.token}/>
     <div className="veterinarios">
       <h1></h1>
