@@ -1,5 +1,5 @@
-const apiConfig = token => ({
+const config = token => ({
   headers: { authorization: `Bearer ${token}`, mode: 'cors', credentials: 'include' }
 });
 
-export default apiConfig;
+export default config;

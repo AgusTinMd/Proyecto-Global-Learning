@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors')
-// const jwt = require('express-jwt');
+const cors = require('cors');
+const jwt = require('express-jwt');
 
 
 const Patient = require('./models/patientModel');
@@ -18,13 +18,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/veterinaryApi');
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
-// app.all('/api/*', jwt({
-//   secret: 'secret',
-//   algorithms: ['HS256'],
-// }).unless({
-//   path: ['/api/users/login'],
-// }));
-
+app.all('/veterinaryApi/*', jwt({secret: 'secret', algorithms: ['HS256']}).unless({path: ['/veterinaryApi/users/login']}));
 app.use('/veterinaryApi', patientRouter, userRouter);
 app.listen(8080);

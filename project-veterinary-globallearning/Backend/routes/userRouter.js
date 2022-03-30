@@ -1,7 +1,8 @@
 const express = require('express');
-const userController = require('../controllers/userController')
-// const userValidationSchema = require('../validationSchema/userValidationSchema');
-// const validator = require('express-joi-validation');
+const userController = require('../controllers/userController');
+const Joi = require('joi');
+const userValidationSchema = require('../validationSchema/userValidationSchema');
+const validator = require('express-joi-validation');
 
 
 const routes = (User) => {
@@ -10,8 +11,11 @@ const routes = (User) => {
   const {getUsers, postUsers, getUsersById, putUsers, deleteUsersById, getUsersByUserName, postLoginUsers, getFindUser} = userController(User);
 
   userRouter.route('/users')
-      .get(getUsers)
+      .get(getUsers);
+
+  userRouter.route('/users/newUser')
       .post(postUsers);
+      
 
   userRouter.route('/users/:userId')
       .get(getUsersById)

@@ -82,7 +82,7 @@ const userController = (User) => {
       res.json({message: 'Valid credentials',token,});
 
     } else {
-      res.json({message: 'Invalid credentials'});
+      res.status(403).json({message: 'Invalid credentials'});
     }
   };
 
