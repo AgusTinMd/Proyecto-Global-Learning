@@ -37,7 +37,7 @@ const  patientController = (Patient) => {
             address: body.address,
             email: body.email,
             petName: body.petName,
-            typePet: body.typePet,
+            petType: body.petType,
             race: body.race,
             age: body.age,
             gender: body.gender,

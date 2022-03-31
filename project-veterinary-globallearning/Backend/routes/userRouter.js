@@ -1,8 +1,8 @@
 const express = require('express');
 const userController = require('../controllers/userController');
 
-
-
+const {userRequeriments} = require('../validationSchema/userValidationSchema')
+const validator = require('express-joi-validation').createValidator();
 
 const routes = (User) => {
   const userRouter = express.Router();
@@ -13,12 +13,12 @@ const routes = (User) => {
       .get(getUsers);
 
   userRouter.route('/users/newUser')
-      .post(postUsers);
+      .post(validator.body(userRequeriments),postUsers);
       
 
   userRouter.route('/users/:userId')
       .get(getUsersById)
-      .put(putUsers)
+      .put(validator.body(userRequeriments), putUsers)
       .delete(deleteUsersById);
 
       
