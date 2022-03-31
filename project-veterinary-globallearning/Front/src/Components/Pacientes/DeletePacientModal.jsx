@@ -17,12 +17,12 @@ const DeletePacientModal = (props) => {
   
     const [ deleteData, setDeleteData] = useState({ 
     
-      userName: (props.datostodelete.userName),
-      password: (props.datostodelete.password),
-      dni: (props.datostodelete.dni),
-      licenseNumber: (props.datostodelete.licenseNumber),
-      phone: (props.datostodelete.phone), 
-      mail:(props.datostodelete.mail)
+      userName: (props.patientInfo.userName),
+      password: (props.patientInfo.password),
+      dni: (props.patientInfo.dni),
+      licenseNumber: (props.patientInfo.licenseNumber),
+      phone: (props.patientInfo.phone), 
+      mail:(props.patientInfo.mail)
     })
     
    
@@ -36,7 +36,7 @@ const DeletePacientModal = (props) => {
         console.log(deleteData)
    
         try{
-          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/patient/${props.datostodelete._id}`, config(props.token));
+          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/patient/${props.patientInfo._id}`, config(props.token));
   
           console.log(resp.data)
           

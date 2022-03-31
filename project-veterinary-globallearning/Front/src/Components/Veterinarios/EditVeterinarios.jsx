@@ -17,12 +17,12 @@ const EditVeterinarios = (props) => {
   
     const [ putData, setPutData] = useState({ 
     
-      userName: (props.datostoedit.userName),
-      password: (props.datostoedit.password),
-      dni: (props.datostoedit.dni),
-      licenseNumber: (props.datostoedit.licenseNumber),
-      phone: (props.datostoedit.phone), 
-      mail:(props.datostoedit.mail)
+      userName: (props.vetInfo.userName),
+      password: (props.vetInfo.password),
+      dni: (props.vetInfo.dni),
+      licenseNumber: (props.vetInfo.licenseNumber),
+      phone: (props.vetInfo.phone), 
+      mail:(props.vetInfo.mail)
     })
     
     const handleChange = (event) => {
@@ -39,7 +39,7 @@ const EditVeterinarios = (props) => {
         console.log(putData)
    
         try{
-          const resp = await axios.put(`http://localhost:8080/veterinaryApi/users/${props.datostoedit._id}`, putData, config(props.token));
+          const resp = await axios.put(`http://localhost:8080/veterinaryApi/users/${props.vetInfo._id}`, putData, config(props.token));
   
           console.log(resp.data)
           
@@ -69,7 +69,8 @@ const EditVeterinarios = (props) => {
       > 
      
         <div> 
-          <Form>
+          <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} type="flex" justify="center" align="middle"
+          style={{marginLeft: '50px'}}>
         <Form.Item label="Usuario">
         <Input type= "text" name="userName"  value={putData.userName} onChange={handleChange}/>
       </Form.Item>
@@ -86,7 +87,7 @@ const EditVeterinarios = (props) => {
       <Form.Item label="Mail">
         <Input type= "text" name="mail"  value={putData.mail} onChange={handleChange}/>
       </Form.Item>
-      <Button type = "primary" onSubmit={handleSubmit} onClick={handleSubmit}> Confirmar edicion </Button>
+      <Button type = "primary" onSubmit={handleSubmit} onClick={handleSubmit} style={{marginRight: '50px'}}> Confirmar edicion </Button>
      
     </Form>
         </div>

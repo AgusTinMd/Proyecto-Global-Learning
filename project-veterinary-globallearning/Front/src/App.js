@@ -15,14 +15,14 @@ function App() {
     <>
     <Router>
       <Routes> 
-        <Route exact path= '/login' element={<Login/>}/>
-        <Route element={<RequireAuth/>}>
+        <Route exact path= '/login' element={<Login/>}/> 
+         <Route element={<RequireAuth/>}> 
           <Route path= '/' element={<Sidebar/>}>
             <Route path='/veterinarios' element={<Veterinarios/>}/>
             <Route path='/home' element={<Home/>}/>
             <Route path='/pacientes' element={<Pacientes/>}/>
           </Route>
-        </Route>
+        </Route> 
       </Routes>
     </Router>
       
