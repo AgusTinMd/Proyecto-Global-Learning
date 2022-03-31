@@ -1,5 +1,5 @@
 import {React, useState, useEffect} from "react";
-import {Table, Button, Input, Modal} from 'antd'
+import {Table} from 'antd'
 import axios from 'axios'
 import PacienteModal from "./PacienteModal"
 import EditPacientModal from './EditPacientModal'
@@ -63,9 +63,6 @@ const Pacientes = () => {
   
   ];
 
-  const showRecord = (record) => {
-    console.log(record)
-  }
   
 
   //Table patients
@@ -77,11 +74,8 @@ const Pacientes = () => {
 
     const resp = await axios.get('http://localhost:8080/veterinaryApi/patient', config(auth.token));
 
-    console.log(resp)
-
     setPatients(resp.data);
-    console.log('Esto es despues de hacer la peticion')
-    console.log(patients)
+
   }
 
   useEffect(()=>{

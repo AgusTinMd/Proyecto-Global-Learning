@@ -29,18 +29,14 @@ const DeleteVeterinarios = (props) => {
     
       
       const handleSubmit = async (event) => {
-      
-        console.log("Entramos al submit")
+    
         event.preventDefault()
-  
-        console.log(deleteData)
-   
+
         try{
-          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/users/${props.vetInfo._id}`, config(props.token));
-  
-          console.log(resp.data)
           
-          closeModal();
+          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/users/${props.vetInfo._id}`, config(props.token));
+         closeModal();
+
         } catch (err){
           console.log(err)
         }
@@ -53,10 +49,10 @@ const DeleteVeterinarios = (props) => {
     <div className="App"> 
     <>
       <Button type="primary" onClick={openModal}>
-        Delete usuarios
+        Eliminar Veterinario
       </Button>
       
-      <Modal title="Eliminacion de usuarios" 
+      <Modal title="Eliminacion de veterinarios" 
       visible={modal}
       onOk={openModal} 
       onCancel={closeModal}
@@ -64,7 +60,7 @@ const DeleteVeterinarios = (props) => {
       > 
      
       <div> 
-				<h1>Desea eliminar el usuario?</h1>
+				<h1>Desea eliminar el veterinario?</h1>
 			<Button type = "primary" onSubmit={handleSubmit} onClick={handleSubmit}> Confirmar </Button>
       <Button onClick={closeModal} style={{marginLeft: '15px'}}>Cerrar</Button>
         </div> 

@@ -32,16 +32,12 @@ const EditVeterinarios = (props) => {
     
       
       const handleSubmit = async (event) => {
-      
-        console.log("Entramos al submit")
+           
         event.preventDefault()
-  
-        console.log(putData)
+ 
    
         try{
           const resp = await axios.put(`http://localhost:8080/veterinaryApi/users/${props.vetInfo._id}`, putData, config(props.token));
-  
-          console.log(resp.data)
           
           closeModal();
         } catch (err){
@@ -59,9 +55,9 @@ const EditVeterinarios = (props) => {
     <div className="App"> 
     <>
       <Button type="primary" onClick={openModal}>
-        Editar usuarios
+        Editar veterinario
       </Button>
-      <Modal title="Edicion de usuarios" 
+      <Modal title="Edicion de veterinarios" 
       visible={modal}
       onOk={openModal} 
       onCancel={closeModal}

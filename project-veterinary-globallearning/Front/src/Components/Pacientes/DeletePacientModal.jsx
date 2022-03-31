@@ -30,35 +30,27 @@ const DeletePacientModal = (props) => {
       
       const handleSubmit = async (event) => {
       
-        console.log("Entramos al submit")
         event.preventDefault()
   
-        console.log(deleteData)
    
         try{
           const resp = await axios.delete(`http://localhost:8080/veterinaryApi/patient/${props.patientInfo._id}`, config(props.token));
   
-          console.log(resp.data)
+         
           
-          //refreshPage();
+         closeModal();
         } catch (err){
           console.log(err)
         }
       }
        
-  
-
-    const refreshPage = () => {
-      window.location.reload(false);
-    }
-
     
 
   return (
     <div className="App"> 
     <>
       <Button type="primary" onClick={openModal}>
-        Delete usuarios
+        Eliminar Paciente
       </Button>
       <Modal title="Eliminacion de usuarios" 
       visible={modal}
@@ -68,7 +60,7 @@ const DeletePacientModal = (props) => {
       > 
       
       <div> 
-				<h1>Desea eliminar el usuario?</h1>
+				<h1>Desea eliminar el paciente?</h1>
 			<Button type = "primary" onSubmit={handleSubmit} onClick={handleSubmit}> Confirmar </Button>
         </div> 
       </Modal>

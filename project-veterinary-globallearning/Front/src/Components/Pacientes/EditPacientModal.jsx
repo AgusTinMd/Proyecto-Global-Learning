@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import Pacientes from "./Pacientes";
 import { Form, Button, Modal, Input } from "antd";
 import axios from "axios";
 import config from './../../api';
@@ -41,17 +40,14 @@ const EditPacienteModal = (props) => {
 
     const handleSubmit = async (event) => {
       
-      console.log("Entramos al submit")
+      
       event.preventDefault()
 
       console.log('ceerrrar modall:::::', modal);
-      console.log(postData)
       
       try{
         const resp = await axios.put(`http://localhost:8080/veterinaryApi/patient/${props.patientInfo._id}`, postData, config(props.token));
-        console.log(resp.data)
         closeModal();
-        //refreshPage();
       } catch (err){
         console.log('ERROR:::::',err)
 
@@ -59,11 +55,7 @@ const EditPacienteModal = (props) => {
 
     }
 
-    const refreshPage = () => {
-      window.location.reload(false);
-    }
-
-   
+     
 
   return (
       <div className="App"> 

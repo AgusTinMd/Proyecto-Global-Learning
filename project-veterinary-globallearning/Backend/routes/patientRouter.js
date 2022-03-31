@@ -4,7 +4,7 @@ const patientController = require('../controllers/patientController')
 
 const routes = (Patient) => {
 	const patientRouter = express.Router();
-	const  {getPatients, postPatient, getPatientById, putPatient, deletePatientById, getSearchPatient} = patientController(Patient); 
+	const  {getPatients, postPatient, getPatientById, putPatient, deletePatientById} = patientController(Patient); 
 
 
 	patientRouter.route('/patient')
@@ -15,10 +15,6 @@ const routes = (Patient) => {
 		.get(getPatientById)
 		.put(putPatient)
 		.delete(deletePatientById)
-
-	patientRouter
-		.route('/patientSearch')
-		.get(getSearchPatient)
 	
 		return patientRouter;
 	}

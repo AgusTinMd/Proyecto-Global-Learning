@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
 import './Home.css';
 import useAuth from "../../hooks/useAuth";
 
-const Home = (props) => {
+const Home = () => {
 
   const { auth } = useAuth();
 

@@ -45,12 +45,11 @@ const PacienteModal = (props) => {
 
     const handleSubmit = async (event) => {
       try{
-      console.log("Entramos al submit")
+      
       event.preventDefault()
  
       const resp = await axios.post('http://localhost:8080/veterinaryApi/patient', postData, config(props.token));
       
-      // refreshPage();
       closeModal();
     }catch(err){
       error("Ha ingresado datos invalidos, por favor controle sus datos.");
@@ -58,11 +57,7 @@ const PacienteModal = (props) => {
 
     }
 
-    const refreshPage = () => {
-      window.location.reload(false);
-    }
 
-   
 
   return (
       <div className="App"> 

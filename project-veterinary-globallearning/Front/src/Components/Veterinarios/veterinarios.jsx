@@ -1,6 +1,6 @@
 import React from "react";
 import PostUsers from "./PostVeterinarios";
-import { Button, Table} from "antd";
+import {Table} from "antd";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import EditVeterinarios from "./EditVeterinarios";
@@ -34,11 +34,6 @@ const Veterinarios = () => {
       dataIndex: 'userName',
       key: 'userName',
     },
-    /* {
-      title: 'Password',
-      dataIndex: 'password',
-      key: 'password',
-    }, */
     {
       title: 'DNI',
       dataIndex: 'dni',

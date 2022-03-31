@@ -1,14 +1,13 @@
 const express = require('express');
 const userController = require('../controllers/userController');
-const Joi = require('joi');
-const userValidationSchema = require('../validationSchema/userValidationSchema');
-const validator = require('express-joi-validation');
+
+
 
 
 const routes = (User) => {
   const userRouter = express.Router();
 
-  const {getUsers, postUsers, getUsersById, putUsers, deleteUsersById, getUsersByUserName, postLoginUsers, getFindUser} = userController(User);
+  const {getUsers, postUsers, getUsersById, putUsers, deleteUsersById, postLoginUsers} = userController(User);
 
   userRouter.route('/users')
       .get(getUsers);
@@ -22,8 +21,6 @@ const routes = (User) => {
       .put(putUsers)
       .delete(deleteUsersById);
 
-  userRouter.route('/searchUsers')
-      .get(getFindUser);
       
 
   userRouter.route('/users/login')

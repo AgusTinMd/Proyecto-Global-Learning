@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
-import {FaHandHoldingMedical, FaDog, FaUserPlus, FaHome} from 'react-icons/fa'
+import {FaHandHoldingMedical, FaDog, FaHome} from 'react-icons/fa'
 
-import {Routes, Route, Link, Outlet} from 'react-router-dom'
+import {Link, Outlet} from 'react-router-dom'
 
 import useAuth from '../../hooks/useAuth';
 
@@ -14,7 +14,6 @@ const Sidebar = () => {
 
     const [collapsed, setCollapsed] = useState(false)
     const onCollapse = collapsed => {
-      console.log(collapsed);
       setCollapsed(collapsed);
     };
 

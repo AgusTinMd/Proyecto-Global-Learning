@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
 import { Form, Input, Button, Checkbox, Row, Card, Col } from 'antd';
 import axios from "axios";
 import useAuth from '../../hooks/useAuth';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login(){
@@ -15,14 +14,13 @@ export default function Login(){
       const response = await axios.post(`http://localhost:8080/veterinaryApi/users/login`, values);
       const data = response?.data;
       setAuth({userName: values.userName, token: data.token});
-      console.log(response);
       navigate('/home', {replace: true});
     }
     catch (err){
       
     }
   
-      console.log('Success:', values);
+      console.log('Success:');
     };
   
     const onFinishFailed = (errorInfo) => {

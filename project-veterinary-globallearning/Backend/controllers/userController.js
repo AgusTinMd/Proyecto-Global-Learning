@@ -61,16 +61,6 @@ const userController = (User) => {
     }
   };
 
-  const getUsersByUserName = async (req, res) => {
-    const {body} = req;
-    const userToFind = await User.findOne({'userName': body.userName});
-
-    if (userToFind) {
-      res.json(userToFind);
-    } else {
-      res.json({'message': 'Invalid Credential'});
-    }
-  };
 
   const postLoginUsers = async (req, res) => {
     const {body} = req;
@@ -97,35 +87,9 @@ const userController = (User) => {
   };
 
 
-  const getFindUser = async (req,res) => {
-    const {query} = req;
-    const key = Object.key(query).join('');
-
-    const userFind = 'User not find';
-
-    if(key === 'userName'){
-      userFind = await User.find({'userName': query.userName})
-      res.json(userFind)
-    }else if(key === 'dni'){
-      userFind = await User.find({'dni': query.dni})
-      res.json(userFind)
-    }else if(key === 'phone'){
-      userFind = await User.find({'phone': query.phone})
-      res.json(userFind)
-    }else if(key === 'licenseNumber'){
-      userFind = await User.find({'licenseNumber': query.licenseNumber})
-      res.json(userFind)
-    }else if(key === 'mail'){
-      userFind = await User.find({'mail': query.mail})
-      res.json(userFind)
-    }else if(paramFind.length !== 0){
-      res.json(userFind);
-    }
-
-  };
 
 
-  return {getUsers, postUsers, getUsersById, putUsers, deleteUsersById, getUsersByUserName, postLoginUsers, getFindUser};
+  return {getUsers, postUsers, getUsersById, putUsers, deleteUsersById, postLoginUsers};
 }
 
 module.exports = userController;

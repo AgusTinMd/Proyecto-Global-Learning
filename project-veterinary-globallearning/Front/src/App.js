@@ -6,7 +6,7 @@ import Home from './Components/Home/Home';
 import Veterinarios from './Components/Veterinarios/Veterinarios';
 import Pacientes from './Components/Pacientes/Pacientes';
 import { BrowserRouter as Router} from 'react-router-dom';
-import {Routes, Route, Link} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 import RequireAuth from './auth/RequireAuth';
 
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form, Input, message } from 'antd';
 import axios from "axios";
 import config from './../../api';
-import './veterinarios.css'
+import './Veterinarios.css'
 
 
 const PostUsers = (props) => {
@@ -33,7 +33,6 @@ setPostData ({...postData, [event.target.name]: event.target.value});
 
 const handleSubmit = async (event) => {
 try{
-console.log("Entramos al submit")
 event.preventDefault()
 
 const resp = await axios.post('http://localhost:8080/veterinaryApi/users/newUser', postData, config(props.token));
@@ -52,7 +51,7 @@ return (
 <div className="App">
   <>
     <Button type="primary" onClick={openModal}>
-      Agregar nuevos usuarios
+      Agregar nuevos veterinario
     </Button>
 
     <Modal title="Registro de usuarios" visible={modal} onOk={openModal} onCancel={closeModal} footer={null}>
