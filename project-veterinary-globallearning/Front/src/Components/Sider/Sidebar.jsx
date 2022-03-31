@@ -31,9 +31,7 @@ const Sidebar = () => {
             <Menu.Item key="3" icon={<FaDog style={{ fontSize: '18px'}} />}>
             <Link to='/pacientes'>Paciente</Link>
             </Menu.Item>
-            {/* <Menu.Item key="4" icon={<FaUserPlus  style={{ fontSize: '18px'}}/>}>
-            <Link to='/newusers'>Nuevos Usuarios</Link>
-            </Menu.Item> */}
+            
           </Menu>
         </Sider>
         <Layout className="site-layout">

@@ -56,7 +56,7 @@ const EditPacienteModal = (props) => {
     }
 
      
-
+    
   return (
       <div className="App"> 
       <>
@@ -72,41 +72,41 @@ const EditPacienteModal = (props) => {
           <div> 
           <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} type="flex" justify="center" align="middle"
           style={{marginLeft: '50px'}} >
-                <Form.Item label="Ownername" >
+                <Form.Item label="Dueño" >
                   <Input name="ownerName" placeholder="Nombre del dueño" value={postData.ownerName} onChange={handleChange}/>
                 </Form.Item>
                 <Form.Item label="DNI">
                   <Input name="dni" placeholder="DNI" value={postData.dni} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="Phone">
+                <Form.Item label="Telefono">
                   <Input name="phone" placeholder="Phone" value={postData.phone} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="address">
+                <Form.Item label="Direccion">
                   <Input name="address" placeholder="Address" value={postData.address} onChange={handleChange}/>
                 </Form.Item>
                 <Form.Item label="Email">
                   <Input name="email" placeholder="Email" value={postData.email} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="Pet name">
+                <Form.Item label="Nombre">
                   <Input name="petName" placeholder="Pet Name" value={postData.petName} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="Pet type">
+                <Form.Item label="Tipo">
                   <Input name="petType" placeholder="petType" value={postData.petType} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="Race">
+                <Form.Item label="Raza">
                   <Input name="race" placeholder="Race" value={postData.race} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="Age">
+                <Form.Item label="Edad">
                   <Input  type = "number" name="age" placeholder="Age" value={postData.age} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="Gender">
+                <Form.Item label="Genero">
                   <Input name="gender" placeholder="Gender" value={postData.gender} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="Description">
+                <Form.Item label="Descrip">
                   <Input name="description" placeholder="Description" value={postData.description} onChange={handleChange}/>
                 </Form.Item>
                 
-                <Button type = "primary" onClick={handleSubmit} onSubmit={handleSubmit} style={{marginRight: '50px'}}> Agregar nuevo paciente </Button>            
+                <Button type = "primary" onClick={handleSubmit} onSubmit={handleSubmit} style={{marginRight: '50px'}}> Confirmar edicion </Button>            
             </Form>
           </div>
         </Modal>

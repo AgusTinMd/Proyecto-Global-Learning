@@ -22,7 +22,8 @@ const userController = (User) => {
       const {params} = req;
       const userToFind = await User.findById(params.userId);
       res.json(userToFind);
-    } catch {
+    } 
+    catch {
       res.json({'message': 'Invalid Credential'});
     }
   };
@@ -45,7 +46,8 @@ const userController = (User) => {
       });
 
       res.json(userUpdate);
-    } catch {
+    } 
+    catch {
       res.json({'message': 'Invalid Credential'});
     }
   };
@@ -56,7 +58,8 @@ const userController = (User) => {
       await User.findByIdAndDelete(userId);
 
       res.json('User/s Deleted');
-    } catch {
+    } 
+    catch {
       res.json({'message': 'Invalid Credential'});
     }
   };

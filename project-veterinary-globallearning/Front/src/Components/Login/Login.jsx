@@ -21,82 +21,82 @@ export default function Login(){
     }
   
       console.log('Success:');
-    };
+  };
   
-    const onFinishFailed = (errorInfo) => {
-      console.log('Failed:', errorInfo);
-    };
+  const onFinishFailed = (errorInfo) => {
+    console.log('Failed:', errorInfo);
+  };
 
 
-    return (
-      <Row type="flex" justify="center" align="middle" style={{minHeight: '100vh'}}>
+  return (
+    <Row type="flex" justify="center" align="middle" style={{minHeight: '100vh'}}>
       <Col>
         <Card>
-        <Form
-          name="basic"
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
-          autoComplete="off"
-        >
-          <Form.Item
-            label="Usuario"
-            name="userName"
-            rules={[
-              {
-                required: true,
-                message: 'Por favor ingrese su nombre de usuario',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-    
-          <Form.Item
-            label="Contraseña"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: 'Por favor ingrese su contraseña',
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-    
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
+          <Form
+            name="basic"
+            labelCol={{
+              span: 8,
+            }}
             wrapperCol={{
-              offset: 8,
               span: 16,
             }}
-          >
-            <Checkbox>Recuerde su contraseña</Checkbox>
-          </Form.Item>
-    
-          <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
+            initialValues={{
+              remember: true,
             }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
           >
-            <Button type="primary" htmlType="submit">
-              Ingresar
-            </Button>
-          </Form.Item>
-        </Form>
+            <Form.Item
+              label="Usuario"
+              name="userName"
+              rules={[
+                {
+                  required: true,
+                  message: 'Por favor ingrese su nombre de usuario',
+                },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+      
+            <Form.Item
+              label="Contraseña"
+              name="password"
+              rules={[
+                {
+                  required: true,
+                  message: 'Por favor ingrese su contraseña',
+                },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+      
+            <Form.Item
+              name="remember"
+              valuePropName="checked"
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+            >
+              <Checkbox>Recuerde su contraseña</Checkbox>
+            </Form.Item>
+      
+            <Form.Item
+              wrapperCol={{
+                offset: 8,
+                span: 16,
+              }}
+            >
+              <Button type="primary" htmlType="submit">
+                Ingresar
+              </Button>
+            </Form.Item>
+          </Form>
         </Card>
       </Col>
-        </Row>
-      );
+    </Row>
+    );
 };

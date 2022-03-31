@@ -30,7 +30,7 @@ const Veterinarios = () => {
     
 
     {
-      title: 'UserName',
+      title: 'Nombre de usuario',
       dataIndex: 'userName',
       key: 'userName',
     },
@@ -40,22 +40,22 @@ const Veterinarios = () => {
       key: 'dni',
     },
     {
-      title: 'License',
+      title: 'Licencia',
       dataIndex: 'licenseNumber',
       key: 'license',
     },
     {
-      title: 'Phone',
+      title: 'Telefono',
       dataIndex: 'phone',
       key: 'phone',
     },
     {
-      title: 'Mail',
+      title: 'Email',
       dataIndex: 'mail',
       key: 'mail',
     },
     {
-      title: 'Action',
+      title: '',
       key: 'action',
        render: (record) => {
         return(

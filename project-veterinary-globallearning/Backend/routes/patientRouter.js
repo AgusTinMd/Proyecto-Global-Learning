@@ -16,7 +16,7 @@ const routes = (Patient) => {
 
 	patientRouter.route('/patient/:patientId')
 		.get(getPatientById)
-		.put(validator.body(patientRequeriments),putPatient)
+		.put(putPatient)
 		.delete(deletePatientById)
 	
 		return patientRouter;

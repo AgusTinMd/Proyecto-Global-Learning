@@ -19,7 +19,8 @@ const  patientController = (Patient) => {
       const {params} = req;
       const patientFind = await Patient.findById(params.patientId);
       res.json(patientFind)
-    } catch {
+    } 
+    catch {
       res.json({'message': 'Patient not found'});
     }
   };
@@ -46,10 +47,11 @@ const  patientController = (Patient) => {
             treatment: body.treatment
           },
       });
-    res.json(patientUpdate);
-  } catch {
-    res.json({'message': 'Patient not found'});
-          }
+      res.json(patientUpdate);
+    } 
+    catch {
+      res.json({'message': 'Patient not found'});
+    }
   };
 
   const deletePatientById = async (req, res) => {
@@ -57,7 +59,8 @@ const  patientController = (Patient) => {
       const patientId = req.params.patientId;
       await Patient.findByIdAndDelete(patientId)
       res.json('Patient Deleted');
-    }catch{
+    }
+    catch{
       res.json({'message': 'Patient not Found'});
     }
   };

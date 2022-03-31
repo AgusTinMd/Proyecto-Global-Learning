@@ -13,7 +13,7 @@ const Pacientes = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);  
   const columns = [
     {
-      title: 'Owner Name',
+      title: 'Dueño',
       dataIndex: 'ownerName',
       key: 'ownerName',
     },
@@ -23,7 +23,7 @@ const Pacientes = () => {
       key: 'dni', 
     },
     {
-      title: 'Phone',
+      title: 'Telefono',
       dataIndex: 'phone',
       key: 'phone',
     },
@@ -33,22 +33,22 @@ const Pacientes = () => {
       key: 'email',
     },
     {
-      title: 'Pet name',
+      title: 'Nombre mascota',
       dataIndex: 'petName',
       key: 'petName',
     },
     {
-      title: 'Race',
+      title: 'Raza',
       dataIndex: 'race',
       key: 'race',
     },
     {
-      title: 'gender',
+      title: 'Genero',
       dataIndex: 'gender',
       key: 'gender',
     },
     {
-      title: 'Action',
+      title: '',
       key: 'action',
       render: (record) => {
         return(
@@ -80,7 +80,7 @@ const Pacientes = () => {
 
   useEffect(()=>{
     getAllPacients()
-  },[])
+  },[patients])
 
 
   return(

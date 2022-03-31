@@ -13,19 +13,6 @@ const DeleteVeterinarios = (props) => {
   const closeModal = () => {
     setModal(false);
   };
-
-  
-    const [ deleteData, setDeleteData] = useState({ 
-    
-      userName: (props.vetInfo.userName),
-      password: (props.vetInfo.password),
-      dni: (props.vetInfo.dni),
-      licenseNumber: (props.vetInfo.licenseNumber),
-      phone: (props.vetInfo.phone), 
-      mail:(props.vetInfo.mail)
-    })
-    
-   
     
       
       const handleSubmit = async (event) => {

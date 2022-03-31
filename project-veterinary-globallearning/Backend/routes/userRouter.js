@@ -18,7 +18,7 @@ const routes = (User) => {
 
   userRouter.route('/users/:userId')
       .get(getUsersById)
-      .put(validator.body(userRequeriments), putUsers)
+      .put(putUsers)
       .delete(deleteUsersById);
 
       
