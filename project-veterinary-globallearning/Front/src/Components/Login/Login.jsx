@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, Row, Card, Col } from 'antd';
 import axios from "axios";
 import useAuth from '../../hooks/useAuth';
 import { Navigate, useNavigate } from 'react-router-dom';
@@ -31,6 +31,9 @@ export default function Login(){
 
 
     return (
+      <Row type="flex" justify="center" align="middle" style={{minHeight: '100vh'}}>
+      <Col>
+        <Card>
         <Form
           name="basic"
           labelCol={{
@@ -94,5 +97,8 @@ export default function Login(){
             </Button>
           </Form.Item>
         </Form>
+        </Card>
+      </Col>
+        </Row>
       );
 };
