@@ -38,7 +38,7 @@ const  patientController = (Patient) => {
             address: body.address,
             email: body.email,
             petName: body.petName,
-            typePet: body.typePet,
+            petType: body.petType,
             race: body.race,
             age: body.age,
             gender: body.gender,
@@ -83,8 +83,8 @@ const  patientController = (Patient) => {
     }else if (key === 'petName') {
       const patientFind = await Patient.find({'petName': query.petName})
       res.json(respSearch(patientFind))
-    }else if (key === 'typePet') {
-      const patientFind = await Patient.find({'phone': query.typePet})
+    }else if (key === 'petType') {
+      const patientFind = await Patient.find({'phone': query.petType})
       res.json(respSearch(patientFind))
     }else if (key === 'race') {
       const patientFind = await Patient.find({'phone': query.race})

@@ -9,7 +9,7 @@ const patientModel = new Schema(
     address: {type: String},
     email: {type: String},
     petName: {type: String},
-    typePet: {type: String},
+    petType: {type: String},
     race: {type: String},
     age: {type: Number},
     gender: {type: String},

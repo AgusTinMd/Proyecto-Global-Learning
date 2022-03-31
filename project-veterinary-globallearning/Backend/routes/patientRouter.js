@@ -1,5 +1,8 @@
 const express = require('express');
-const patientController = require('../controllers/patientController')
+const patientController = require('../controllers/patientController');
+const Joi = require('joi');
+const {patientRequeriments} = require('../validationSchema/pacienteValidationSchema')
+const validator = require('express-joi-validation').createValidator();
 
 
 const routes = (Patient) => {
@@ -9,7 +12,7 @@ const routes = (Patient) => {
 
 	patientRouter.route('/patient')
   .get(getPatients)
-  .post(postPatient);
+  .post(validator.body(patientRequeriments), postPatient);
 
 	patientRouter.route('/patient/:patientId')
 		.get(getPatientById)
