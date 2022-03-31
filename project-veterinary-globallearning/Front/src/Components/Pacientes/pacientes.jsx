@@ -5,7 +5,7 @@ import PacienteModal from "./PacienteModal"
 import EditPacientModal from './EditPacientModal'
 import DeletePacientModal from './DeletePacientModal'
 import useAuth from "../../hooks/useAuth";
-import config from './../../api';
+import config from '../../api';
 
 const Pacientes = () => {
   const {auth} = useAuth();
@@ -53,9 +53,9 @@ const Pacientes = () => {
       render: (record) => {
         return(
           <>
-            <EditPacientModal datostoedit={record} token={auth.token} isModalVisible={isModalVisible} setVision={setIsModalVisible} />
+            <EditPacientModal patientInfo={record} token={auth.token} isModalVisible={isModalVisible} setVision={setIsModalVisible} />
             <br/>
-            <DeletePacientModal datostodelete={record} token={auth.token}/>      
+            <DeletePacientModal patientInfo={record} token={auth.token}/>      
           </>
         )
       }

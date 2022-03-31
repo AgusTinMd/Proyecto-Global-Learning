@@ -1,6 +1,6 @@
 import { useState } from "react";
 // import Pacientes from "./Pacientes";
-import { Form, Button, Modal, Input } from "antd";
+import { Form, Button, Modal, Input, message } from "antd";
 import axios from "axios";
 import config from './../../api';
 
@@ -24,10 +24,10 @@ const PacienteModal = (props) => {
       ownerName: '',
       dni: '',
       phone: '',
-      addres: '',
+      address: '',
       email: '', 
       petName:'',
-      typePet: '',
+      petType: '',
       race: '',
       age: '',
       gender: '',
@@ -39,8 +39,12 @@ const PacienteModal = (props) => {
       setPostData ({...postData, [event.target.name]: event.target.value});
     }
 
+    const error = (mensaje) => {
+      message.error(mensaje);
+      };
+
     const handleSubmit = async (event) => {
-      
+      try{
       console.log("Entramos al submit")
       event.preventDefault()
  
@@ -48,6 +52,9 @@ const PacienteModal = (props) => {
       
       // refreshPage();
       closeModal();
+    }catch(err){
+      error("Ha ingresado datos invalidos, por favor controle sus datos.");
+    }
 
     }
 
@@ -70,42 +77,43 @@ const PacienteModal = (props) => {
         footer = {null}  
         > 
           <div> 
-            <Form >
-                <Form.Item label="owner Name">
+            <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} type="flex" justify="center" align="middle"
+          style={{marginLeft: '50px'}} >
+                <Form.Item label="Ownername" >
                   <Input name="ownerName" placeholder="Nombre del dueño" value={postData.ownerName} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="dni">
+                <Form.Item label="DNI">
                   <Input name="dni" placeholder="DNI" value={postData.dni} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="phone">
+                <Form.Item label="Phone">
                   <Input name="phone" placeholder="Phone" value={postData.phone} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="addres">
-                  <Input name="addres" placeholder="Addres" value={postData.addres} onChange={handleChange}/>
+                <Form.Item label="Address">
+                  <Input name="address" placeholder="Address" value={postData.address} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="email">
+                <Form.Item label="Email">
                   <Input name="email" placeholder="Email" value={postData.email} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="petname">
+                <Form.Item label="Pet name">
                   <Input name="petName" placeholder="Pet Name" value={postData.petName} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="typePet">
-                  <Input name="typePet" placeholder="TypePet" value={postData.typePet} onChange={handleChange}/>
+                <Form.Item label="Pet type">
+                  <Input name="petType" placeholder="petType" value={postData.petType} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="race">
+                <Form.Item label="Race">
                   <Input name="race" placeholder="Race" value={postData.race} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="age">
-                  <Input name="age" placeholder="Age" value={postData.age} onChange={handleChange}/>
+                <Form.Item label="Age">
+                  <Input  type = "number" name="age" placeholder="Age" value={postData.age} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="gender">
+                <Form.Item label="Gender">
                   <Input name="gender" placeholder="Gender" value={postData.gender} onChange={handleChange}/>
                 </Form.Item>
-                <Form.Item label="description">
+                <Form.Item label="Description">
                   <Input name="description" placeholder="Description" value={postData.description} onChange={handleChange}/>
                 </Form.Item>
                 
-                <Button type = "primary" onClick={handleSubmit} onSubmit={handleSubmit} > Agregar nuevo paciente </Button>            
+                <Button type = "primary" onClick={handleSubmit} onSubmit={handleSubmit} style={{marginRight: '50px'}}> Agregar nuevo paciente </Button>            
             </Form>
           </div>
         </Modal>

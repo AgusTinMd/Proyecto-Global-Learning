@@ -17,12 +17,12 @@ const DeleteVeterinarios = (props) => {
   
     const [ deleteData, setDeleteData] = useState({ 
     
-      userName: (props.datostodelete.userName),
-      password: (props.datostodelete.password),
-      dni: (props.datostodelete.dni),
-      licenseNumber: (props.datostodelete.licenseNumber),
-      phone: (props.datostodelete.phone), 
-      mail:(props.datostodelete.mail)
+      userName: (props.vetInfo.userName),
+      password: (props.vetInfo.password),
+      dni: (props.vetInfo.dni),
+      licenseNumber: (props.vetInfo.licenseNumber),
+      phone: (props.vetInfo.phone), 
+      mail:(props.vetInfo.mail)
     })
     
    
@@ -36,7 +36,7 @@ const DeleteVeterinarios = (props) => {
         console.log(deleteData)
    
         try{
-          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/users/${props.datostodelete._id}`, config(props.token));
+          const resp = await axios.delete(`http://localhost:8080/veterinaryApi/users/${props.vetInfo._id}`, config(props.token));
   
           console.log(resp.data)
           
@@ -55,6 +55,7 @@ const DeleteVeterinarios = (props) => {
       <Button type="primary" onClick={openModal}>
         Delete usuarios
       </Button>
+      
       <Modal title="Eliminacion de usuarios" 
       visible={modal}
       onOk={openModal} 
@@ -65,6 +66,7 @@ const DeleteVeterinarios = (props) => {
       <div> 
 				<h1>Desea eliminar el usuario?</h1>
 			<Button type = "primary" onSubmit={handleSubmit} onClick={handleSubmit}> Confirmar </Button>
+      <Button onClick={closeModal} style={{marginLeft: '15px'}}>Cerrar</Button>
         </div> 
       </Modal>
     </>

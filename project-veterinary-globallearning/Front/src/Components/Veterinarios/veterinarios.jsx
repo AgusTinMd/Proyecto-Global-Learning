@@ -6,7 +6,7 @@ import axios from "axios";
 import EditVeterinarios from "./EditVeterinarios";
 import DeleteVeterinarios from "./DeleteVeterinarios";
 import useAuth from "../../hooks/useAuth";
-import config from './../../api';
+import config from '../../api';
 
 const Veterinarios = () => {
   const {auth} = useAuth();
@@ -65,9 +65,9 @@ const Veterinarios = () => {
        render: (record) => {
         return(
           <>
-            <EditVeterinarios datostoedit={record} token={auth.token}/>
+            <EditVeterinarios vetInfo={record} token={auth.token}/>
             <br />
-            <DeleteVeterinarios datostodelete={record} token={auth.token}/>         
+            <DeleteVeterinarios vetInfo={record} token={auth.token}/>         
           </>
         )
       } 
